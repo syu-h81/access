@@ -18,6 +18,7 @@
 <body>
 
 <script>
+  
   let width = document.querySelector(".header-title").clientWidth;
   if(document.querySelector(".header-account") != null){
     width += document.querySelector(".header-account").clientWidth;
@@ -58,9 +59,9 @@
         </button>
       </div>
       <style>
-        .announce-toggle.hidden .announce{
+        /*.announce-toggle.hidden .announce{
           display: none;
-        }
+        }*/
         .announce-toggle .link-arrow .icon {
           transform: rotate(90deg);
           transition: all 0.2s ease;
@@ -78,7 +79,7 @@
           padding-top: 60px;
         }
       </style>
-      <div class="announce-toggle" style="font-size: 13px; color: #fff; margin-right: 11.6%;">
+      <div class="announce-toggle" style="font-size: 13px; color: #fff; margin-right: 5%;">
         ツール内掲示板（開閉可能）
         <span class="link-arrow"><svg class="icon icon-sm" style="width: 25px;" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
         <div class="announce" style="font-size: 13px; width: 100%;"> </div>
@@ -173,6 +174,7 @@
     background-color: #BD3819 !important;
     padding: 0 24px;
     color: #fff;
+    width: 277px;
   }
   .sidebar .nav-link,
   #sidebar>div>ul>li>span,
@@ -618,9 +620,9 @@
     <div class="extract-group">
       <div class="label">仕入れ目安</div>
       <div class="extract-body">
-        <input type="number" id="e_shiire1">　
+        <input type="number" id="e_shiire1">
         〜
-        <input type="number" id="e_shiire2">　
+        <input type="number" id="e_shiire2">
       </div>
     </div>
     <div class="extract-group">
@@ -692,8 +694,8 @@
         <span class="margin">件</span>
         <span>1 - 25 件</span>
       </div>
-      <button class="update-selling btn btn-primary absolute" style="right:140px;">出品情報の取得</button>
-      <button class="csv btn absolute" style="right:30px;">CSV出力</button>
+      <button class="update-selling btn btn-primary absolute" style="right:160px;">出品情報の取得</button>
+      <button class="csv btn absolute" style="right:50px;">CSV出力</button>
     </div>
     <div class="list">
       <div class="item relative">
@@ -743,7 +745,7 @@
                   </div>
                    <div class="values-flex">
                     <span class="value">梱包サイズ</span>
-                    <div class="value-radius-inner value-radius-inner-ml60">
+                    <div class="value-radius-inner">
                       <div class="value-radius"></div>
                       <div class="value-radius"></div>
                       <div class="value-radius"></div>
@@ -752,16 +754,16 @@
                   </div>
                   <div class="values-flex">
                     <span class="value">バリエーション</span>
-                    <div class="value-radius-inner value-radius-inner-ml33">
+                    <div class="value-radius-inner">
                       <div class="value-radius"></div>
                       <div class="value-radius"></div>
                       <div class="value-radius"></div>
                     </div>
-                    <span class="value-number value-bold value-radius-inner-ml60">1個</span>
+                    <span class="value-number value-bold">1個</span>
                   </div>
                   <div class="values-flex">
                     <span class="value">出品したsku</span>
-                    <div class="value-radius-inner value-radius-inner-ml54">
+                    <div class="value-radius-inner">
                       <div class="value-radius"></div>
                       <div class="value-radius"></div>
                       <div class="value-radius"></div>

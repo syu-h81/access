@@ -1,3 +1,16 @@
+.announce-toggle {
+  .link-arrow {
+    .icon {
+      transform: rotate(90deg);
+      transition: all 0.2s ease;
+      &.rotate {
+        transform: rotate(0deg);
+        transition: all 0.2s ease;
+      }
+    }
+  }
+}
+
 .header-account {
   margin-right: 50px;
   margin-top: -6px;
@@ -144,6 +157,10 @@
 .popup {
   position: fixed;
   z-index: 10;
+  display: none;
+  &.open {
+    display: block;
+  }
   &-inner {
     position: absolute;
     z-index: 10;
@@ -249,7 +266,7 @@
 .main {
   background-color: #F2F2F2;
   margin-left: auto;
-  padding: 0 1.5rem 3rem 1.5rem;
+  padding: 0 3rem 3rem 3rem;
   .toolboard {
     position: fixed;
     width: 83%;
@@ -447,6 +464,7 @@
           .value {
             padding-left: 15px;
             position: relative;
+            width: 150px;
             &::before {
               content: '';
               position: absolute;
@@ -458,18 +476,6 @@
             }
             &-bold {
               font-weight: bold;
-            }
-            &-radius-inner {
-              margin-left: 100px;
-              &-ml60 {
-                margin-left: 60px;
-              }
-              &-ml33 {
-                margin-left: 33px;
-              }
-              &-ml54 {
-                margin-left: 54px;
-              }
             }
             &-radius {
               width: 4px;
@@ -599,7 +605,7 @@
         }
         &-bar {
           font-weight: bold;
-          margin: 0 30px;
+          margin: 0 10px;
         }
         &-info-box2 {
           display: grid;
