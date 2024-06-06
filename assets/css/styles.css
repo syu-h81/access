@@ -301,6 +301,12 @@ thead .p-brand_data:after {
     width: 16.666667%;
   }
 }
+@media screen and (min-width: 1450px) {
+  .col-md-9 {
+    flex: 0 0 auto;
+    width: 82%;
+  }
+}
 .all-products {
   min-width: 760px;
 }
@@ -744,7 +750,9 @@ table.ip-list {
 
 .popup {
   position: fixed;
-  z-index: 10;
+  top: 0;
+  left: 0;
+  z-index: 100;
   display: none;
 }
 .popup.open {
@@ -752,6 +760,7 @@ table.ip-list {
 }
 .popup-inner {
   position: absolute;
+  left: 0;
   z-index: 10;
   width: 100vw;
   height: 100vh;
