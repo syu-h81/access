@@ -1136,6 +1136,9 @@ table.ip-list {
 .main .list .price-prediction-inner .price-unit {
   margin-left: 50px;
 }
+.main .list .price-prediction-inner .prediction {
+  width: 50%;
+}
 .main .list .price-prediction-inner .prediction .pp-title {
   position: relative;
   display: flex;
@@ -1211,7 +1214,7 @@ table.ip-list {
   text-align: center;
 }
 .main .list .profit-box {
-  width: 200px;
+  width: 30%;
   border: 0.1px solid #707070;
 }
 .main .list .profit-purchase-box input {
@@ -1246,7 +1249,7 @@ table.ip-list {
 }
 .main .list .profit-input {
   background-color: #FFF8F8;
-  padding: 20px;
+  padding: 20px 15px;
   height: 93px;
 }
 .main .list .profit-input-bg-white {

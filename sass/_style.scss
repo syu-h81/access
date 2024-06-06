@@ -561,6 +561,7 @@
         }
       }
       .prediction {
+        width: 50%;
         .pp-title {
           position: relative;
           display: flex;
@@ -636,7 +637,7 @@
         text-align: center;
       }
       &-box {
-        width: 200px;
+        width: 30%;
         border: 0.1px solid #707070;
       }
       &-purchase-box {
@@ -675,7 +676,7 @@
       }
       &-input {
         background-color: #FFF8F8;
-        padding: 20px;
+        padding: 20px 15px;
         height: 93px;
         &-bg-white {
           background-color: #fff;
