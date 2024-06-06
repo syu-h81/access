@@ -1,0 +1,961 @@
+<!-- header -->
+
+<!DOCTYPE html>
+<html lang="en" class="<?php echo $page_path;?>">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アクセス</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+
+<script>
+  let width = document.querySelector(".header-title").clientWidth;
+  if(document.querySelector(".header-account") != null){
+    width += document.querySelector(".header-account").clientWidth;
+  }
+  width += 20;
+  document.querySelector(".announce-toggle").style.width = "calc(100% - "+width+"px)";
+
+  document.querySelector(".announce-toggle").addEventListener("click", function(){
+    var data = {
+      announce: "open"
+    }
+    if(this.className.indexOf("hidden") > -1){
+      this.classList.remove("hidden");
+      var height = document.querySelector("header").clientHeight;
+      document.querySelector("div.container-fluid").style.paddingTop = height+"px";
+      document.querySelector(".sidebar").style.paddingTop = height+"px";
+    }
+    else{
+      this.classList.add("hidden");
+      data = {
+        announce: "close"
+      }
+      document.querySelector("div.container-fluid").style.paddingTop = "60px";
+      document.querySelector(".sidebar").style.paddingTop = "60px";
+    }
+  });
+</script>
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- header -->
+    <header class="navbar navbar-light bg-light p-3 user-select-none">
+      <div class="d-flex mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between header-title">
+        <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <style>
+        .announce-toggle.hidden .announce{
+          display: none;
+        }
+        .announce-toggle .link-arrow .icon {
+          transform: rotate(90deg);
+          transition: all 0.2s ease;
+        }
+        .announce-toggle.hidden .link-arrow .icon {
+          transform: rotate(0deg);
+          transition: all 0.2s ease;
+        }
+        header.navbar{
+          position: fixed;
+          width: 100%;
+          background-color: #971D03!important;
+        }
+        div.container-fluid{
+          padding-top: 60px;
+        }
+      </style>
+      <div class="announce-toggle" style="font-size: 13px; color: #fff; margin-right: 11.6%;">
+        ツール内掲示板（開閉可能）
+        <span class="link-arrow"><svg class="icon icon-sm" style="width: 25px;" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></span>
+        <div class="announce" style="font-size: 13px; width: 100%;"> </div>
+      </div>
+      <style>.navbar{height:60px;}</style>
+      <div class="d-flex align-items-center justify-content-md-end header-account">
+        <div class='now-account' data-group=''><a href=''>アカウント：<span>example@adologi.co.jp</span></a></div>
+        <a class="logout" href="">Logout</a>
+      </div>
+    </header>
+  <script>
+    var h_height = document.querySelector("header").clientHeight;
+    document.querySelector("div.container-fluid").style.paddingTop = h_height + "px";
+  </script>
+
+
+
+
+
+<!-- sidebar -->
+
+<style>
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 72px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    z-index: 99;
+    padding-top: 30px!important;
+  }
+  @media (max-width: 767.98px) {
+    .sidebar {
+      top: 11.5rem;
+      padding: 0;
+    }
+  }
+  .navbar {
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
+  }
+  @media (min-width: 767.98px) {
+    .navbar {
+      top: 0;
+      position: sticky;
+      z-index: 10;
+    }
+  }
+  .sidebar .nav-link {
+    color: #777;
+  }
+  .sidebar .nav-link.active {
+    color: #971D03;
+  }
+  a.active{
+    background: #971D03;
+    color: #fff !important;
+  }
+  .sidebar .nav-item .nav-link {
+      cursor: pointer;
+  }
+  #sidebar>div>ul>li>span{
+    background: transparent;
+    color: #777;
+  }
+  #sidebar>div>ul>li>span[aria-expanded="false"]{
+    background: transparent;
+    color: #777;
+  }
+  span.nav-link.active{
+    color: #000 !important;
+  }
+  .icon.icon-sm {
+    height: 1.5rem;
+  }
+  .sidebar .nav-link[aria-expanded=true] .link-arrow{
+    transform: rotate(90deg);
+    transition: all 0.2s ease;
+  }
+  .multi-level.collapse:not(.show){
+    overflow: hidden;
+    height: 0;
+    transition: height 2.66s;
+  }
+  .multi-level.collapse.show{
+    overflow: inherit;
+    height: auto;
+    transition: height 2.66s;
+  }
+  .sidebar{
+    background-color: #BD3819 !important;
+    padding: 0 24px;
+    color: #fff;
+  }
+  .sidebar .nav-link,
+  #sidebar>div>ul>li>span,
+  #sidebar>div>ul>li>span[aria-expanded="false"]{
+    color: #fff;
+  }
+  span.nav-link.active{
+    color: #fff !important;
+  }
+  a.active {
+    background: #971D03;
+  }
+</style>
+<nav id="sidebar" class="user-select-none col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="position-sticky">
+    <div class="nav-logo">
+      <img src="assets/images/logo-aicon.png" alt="">
+    </div>
+    <ul class="nav flex-column nav-list">
+      <li class="nav-item">
+        <img src="assets/images/search.png" alt="">
+        <a class="nav-link" href="/api/">
+          <span class="sidebar-text">商品を検索する</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <img src="assets/images/log_confirm.png" alt="">
+        <a class="nav-link" href="/api/">
+          <span class="sidebar-text">ログを確認する</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <img src="assets/images/fa-regular-circle-xmark.png" alt="">
+        <a class="nav-link" href="/api/">
+          <span class="sidebar-text">NGリスト</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <img src="assets/images//api_ certification.png" alt="">
+        <a class="nav-link" href="/api/">
+          <span class="sidebar-text">API認証</span>
+        </a>
+      </li>
+    </ul>
+    <div class="nav-border-contents">
+      <div class="nav-infoacq-content nav-content">
+        <div class="nav-infoacq-heading">
+          <img src="assets/images/loading.png" alt="">
+          <div class="nav-infoacq-heading-name">情報取得中</div>
+        </div>
+        <div class="nav-infoacq-id nav-infoacq-box">
+          <span class="nav-id-name nav-name">ID...</span>
+          <span class="nav-id-number nav-number">666666</span>
+        </div>
+        <div class="nav-infoacq-acq nav-infoacq-box">
+          <span class="nav-acq-name nav-name">取得数...</span>
+          <span class="nav-acq-number nav-number">666666</span>
+        </div>
+      </div>
+      <div class="nav-monthsearch-content nav-content">
+        <p class="nav-monthsearch-content-text">月検索上限数</p>
+        <div class="nav-monthsearch-content-show">999999</div>
+        <p class="nav-monthsearch-content-text2">制限なし</p>
+      </div>
+    </div>
+    <div class="nav-moneyorder-content">
+      <div class="nav-moneyorder-content-heading">MM/DDの為替（〇〇取得）</div>
+      <div class="nav-moneyorder-content-area">
+        <div class="nav-moneyorder-name">１ドル</div>
+        <div class="nav-moneyorder-yen">¥ - - -</div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-flex">
+          <p class="footer-text">利用規約</p>
+          <p class="footer-text">マニュアル</p>
+        </div>
+        <div class="footer-copyright">
+          <small>© ADOLOGI Co.,Ltd.</small>
+        </div>
+      </div>
+    </footer>
+  </div>
+</nav>
+<script>
+  let header_height = document.querySelector("header").clientHeight;
+  document.querySelector("#sidebar").style.paddingTop = header_height + "px";
+</script>
+
+<!-- sidebar -->
+
+
+
+
+
+<style>
+  .flex{
+    display: flex;
+  }
+
+  .flex.form {
+    display: flex;
+    align-items: center;
+  }
+  .flex.wrap{
+    flex-flow: wrap;
+  }
+  .flex.end{
+    align-items: flex-end;
+  }
+  .flex.between{
+    justify-content: space-between;
+  }
+  label{
+    line-height: 30px;
+  }
+  #search_url{
+    margin: 0 10px;
+    width: calc(100% - 500px);
+    min-width: 500px
+  }
+  .relative{
+    position: relative;
+  }
+  .absolute{
+    position: absolute;
+  }
+  .list{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .item{
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  .item .delete{
+    right: 2%;
+    top: 40px;
+  }
+  .item .update{
+    right: 10%;
+    top: 40px;
+  }
+  .item .title{
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #00f;
+    width: calc(100% - 180px);
+    min-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .item .ranking{
+    border-bottom: 1px solid #555;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .item .ranking>div{
+    text-align: right;
+    width: 130px;
+  }
+  .item table{
+    width: 100%;
+  }
+  .item table thead{
+    background: #eee;
+  }
+  .item table thead tr:first-child th {
+    border: 1px solid #eee;
+  }
+  .item .main{
+    width: calc(100% - 0px);
+  }
+  .item .left{
+    width: 400px;
+    padding: 0 20px;
+  }
+  .item .img{
+    width: 350px;
+  }
+  .item .right{
+    width: calc(100% - 400px);
+  }
+  .item .right .flex div{
+    /*width: calc(100%/5);*/
+  }
+  input#store_url{
+    min-width: 300px;
+    width: 50%;
+  }
+  .result{
+    color: red;
+  }
+  img{
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+  }
+  .left div.noimage{
+    height: 200px;
+    vertical-align: middle;
+    display: table-cell;
+    text-align: center;
+    width: 350px;
+    background: #f6f6f6;
+  }
+  .highlight{
+    color: red;
+  }
+  .item .right .flex.wrap>div{
+    width: 190px;
+    /*width: 160px;*/
+  }
+  .ng-label{
+    margin-right: 13px;
+    transform: translateY(50%);
+    margin-top: -25px;
+  }
+  .ng-list{
+    margin-bottom: -10px;
+    height: 80px;
+    width: 200px;
+    resize: vertical;
+  }
+  .ng-submit{
+    transform: translateY(50%);
+    margin-top: -35px;
+    margin-left: 10px;
+  }
+  .ng-register{
+    height: 40px;
+    border-radius: 8px !important;
+  }
+  .extract{
+    padding-bottom: 20px;
+  }
+  .extract #free_word{
+    padding: 5px;
+  }
+  #extract_detail_wrapper{
+    display: none;
+    transition: height 0.3s ease; /* 高さのトランジション効果を設定 */
+    overflow: hidden;
+    background: #eee;
+    padding: 5px 0 10px;
+    margin-bottom: 70px;
+  }
+  #extract_detail_wrapper .extract-group {
+    display: flex;
+    margin: 10px;
+  }
+  #extract_detail_wrapper .label {
+    /*width: 180px;*/
+    width: 200px;
+    /*background: #fff;
+    border: 1px solid #aaa;*/
+    padding: 5px;
+    margin-right: 10px;
+  }
+  #extract_detail_wrapper .extract-body{
+    width: 310px;
+  }
+  #extract_detail_wrapper input[type="date"]{
+    margin-right: 5px;
+    width: 120px;
+    text-align: center;
+    color: #777;
+  }
+  #extract_detail_wrapper input[type="number"]{
+    margin-right: 5px;
+    width: 120px;
+  }
+  #extract_detail_wrapper .extract-body label{
+    margin: 0 20px;
+  }
+  #extract_detail_wrapper input[type="checkbox"]{
+    margin-right: 5px;
+  }
+</style>
+<div class="popup">
+  <div class="popup-inner">
+    <div class="popup-content">
+      <button class="popup-content-close-box btn">
+        <div class="popup-content-close-box-text">close</div>
+      </button>
+      <div class="popup-content-acq popup-content-box">
+        <label class="popup-content-box-label" for="">取得日</label>
+        <div class="popup-content-input-box">
+          <input class="calender" type="text" value="年/月/日">
+          <span class="wave">〜</span>
+          <input class="calender" type="text" value="年/月/日">
+        </div>
+      </div>
+      <div class="popup-content-acq popup-content-box">
+        <label class="popup-content-box-label" for="">過去180日間Amazon.com</label>
+        <div class="popup-content-input-box">
+          <input class="checkbox" type="checkbox">
+          <span class="no">なし</span>
+          <input class="checkbox" type="checkbox">
+          <span class="yes">あり</span>
+        </div>
+      </div>
+      <div class="popup-content-acq popup-content-box">
+        <label class="popup-content-box-label" for="">現在Amazon.co.jp</label>
+        <div class="popup-content-input-box">
+          <input class="checkbox" type="checkbox">
+          <span class="no">なし</span>
+          <input class="checkbox" type="checkbox">
+          <span class="yes">あり</span>
+        </div>
+      </div>
+      <div class="popup-content-acq popup-content-box">
+        <label class="popup-content-box-label" for="">FBA販売者</label>
+        <div class="popup-content-input-box">
+          <input class="checkbox" type="checkbox">
+          <span class="no">なし</span>
+          <input class="checkbox" type="checkbox">
+          <span class="yes">あり</span>
+        </div>
+      </div>
+      <div class="popup-content-acq popup-content-box">
+        <label class="popup-content-box-label" for="">粗利率</label>
+        <div class="popup-content-input-box">
+          <input type="number">
+          <span class="percentage">%</span>
+          <span class="wave">〜</span>
+          <input type="number">
+        </div>
+      </div>
+      <div class="popup-content-acq popup-content-box">
+        <label class="popup-content-box-label" for="">粗利額</label>
+        <div class="popup-content-input-box">
+          <input type="number">
+          <span class="unit">円</span>
+          <span class="wave">〜</span>
+          <input type="number">
+        </div>
+      </div>
+      <div class="popup-content-acq popup-content-box">
+        <label class="popup-content-box-label" for="">仕入れ目安</label>
+        <div class="popup-content-input-box">
+          <input type="number">
+          <span class="space"></span>
+          <span class="wave">〜</span>
+          <input type="number">
+        </div>
+      </div>
+      <div class="popup-content-acq popup-content-box">
+        <label class="popup-content-box-label" for="">返品率</label>
+        <div class="popup-content-input-box">
+          <input type="number">
+          <span class="percentage">%</span>
+          <span class="wave">〜</span>
+          <input type="number">
+        </div>
+      </div>
+      <button class="popup-content-result-btn btn btn-primary">
+        <div class="popup-content-result-btn-text">条件抽出検索</div>
+      </button>
+    </div>
+  </div>
+</div>
+<main id="main" class="main col-md-9 col-lg-10">
+  <div class="toolboard hidden">
+    <div class="toolboard-inner">
+      <div class="toolboard-textarea-content">
+        <textarea class="toolboard-textarea" name="">テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。テキストが入ります。
+        </textarea>
+      </div>
+    </div>
+  </div>
+  <div class="search">
+    <div class="search-inner">
+      <div class="search-seller-box search-acq-box">
+        <form action="" class="form-inner">
+          <label for="">セラー情報取得</label>
+          <input type="text" value="ストアフロントURL">
+          <button class="search-acq-btn btn btn-primary">登録</button>
+        </form>
+      </div>
+      <div class="search-asin-box search-acq-box">
+        <form action="" class="form-inner">
+          <label for="">ASIN情報取得</label>
+          <input type="text" value="ASIN">
+          <button class="search-acq-btn btn btn-primary">登録</button>
+        </form>
+      </div>
+    </div>
+    <div class="search-free-inner">
+      <input type="text" value="フリーワード">
+      <button class="search-free-btn btn btn-primary">検索</button>
+      <button class="search-extract-btn btn btn-primary">抽出条件</button>
+    </div>
+  </div>
+  <div id="extract_detail_wrapper" style="display: none; height: 0px;">
+    <div class="extract-group">
+      <div class="label">取得日</div>
+      <div class="extract-body">
+        <input type="date" id="e_date1" value="">日
+        〜
+        <input type="date" id="e_date2" value="">日
+      </div>
+    </div>
+    <div class="extract-group">
+      <div class="label">過去180日間Amazon.com</div>
+      <div class="extract-body">
+        <label><input type="checkbox" id="e_com1">なし</label>
+        <label><input type="checkbox" id="e_com2">あり</label>
+      </div>
+    </div>
+    <div class="extract-group">
+      <div class="label">現在Amazon.co.jp</div>
+      <div class="extract-body">
+        <label><input type="checkbox" id="e_cojp1">なし</label>
+        <label><input type="checkbox" id="e_cojp2">あり</label>
+      </div>
+    </div>
+    <div class="extract-group">
+      <div class="label">FBA販売者</div>
+      <div class="extract-body">
+        <label><input type="checkbox" id="e_fba1">なし</label>
+        <label><input type="checkbox" id="e_fba2">あり</label>
+      </div>
+    </div>
+    <div class="extract-group">
+      <div class="label">粗利率</div>
+      <div class="extract-body">
+        <input type="number" id="e_percent1">%
+        〜
+        <input type="number" id="e_percent2">%
+      </div>
+    </div>
+    <div class="extract-group">
+      <div class="label">粗利額</div>
+      <div class="extract-body">
+        <input type="number" id="e_profit1">円
+        〜
+        <input type="number" id="e_profit2">円
+      </div>
+    </div>
+    <div class="extract-group">
+      <div class="label">仕入れ目安</div>
+      <div class="extract-body">
+        <input type="number" id="e_shiire1">　
+        〜
+        <input type="number" id="e_shiire2">　
+      </div>
+    </div>
+    <div class="extract-group">
+      <div class="label">返品率</div>
+      <div class="extract-body">
+        <input type="number" id="e_return1">%
+        〜
+        <input type="number" id="e_return2">%
+      </div>
+    </div>
+    <div><button id="extract_detail_done" class="search btn btn-primary ml-2">フィルター検索</div>
+  </div>
+
+  <script>
+    if(document.querySelector("#extract_detail") != null){
+      document.querySelector("#extract_detail").addEventListener("click", function(){
+        if(document.querySelector("#extract_detail_wrapper").style.display != "block"){
+          slideDown(document.querySelector("#extract_detail_wrapper"));
+        }
+        else{
+          slideUp(document.querySelector("#extract_detail_wrapper"));
+        }
+      });
+
+      function slideDown(element) {
+        element.style.display = 'block';
+        element.style.height = element.scrollHeight + 'px';
+      }
+
+      function slideUp(element) {
+        element.style.height = '0';
+        setTimeout(function() {
+          element.style.display = 'none';
+        }, 300); // 0.3秒後に非表示にする
+      }
+    }
+    if(document.querySelector("#extract_detail_done") != null){
+      document.querySelector("#extract_detail_done").addEventListener("click", function(){
+        let filter = document.querySelector("#extract_detail_wrapper");
+        let da = filter.querySelector("#e_date1").value + "_" + filter.querySelector("#e_date2").value;
+        let am = (filter.querySelector("#e_com1").checked ? 1 : "0") + "_" + (filter.querySelector("#e_com2").checked ? 1 : 0);
+        let amco = "";
+        if(filter.querySelector("#e_cojp1") != null){
+          amco = (filter.querySelector("#e_cojp1").checked ? 1 : "0") + "_" + (filter.querySelector("#e_cojp2").checked ? 1 : 0);
+        }
+        let fb = (filter.querySelector("#e_fba1").checked ? 1 : "0") + "_" + (filter.querySelector("#e_fba2").checked ? 1 : 0);
+        let pe = filter.querySelector("#e_percent1").value + "_" + filter.querySelector("#e_percent2").value;
+        let pr = filter.querySelector("#e_profit1").value + "_" + filter.querySelector("#e_profit2").value;
+        let si = filter.querySelector("#e_shiire1").value + "_" + filter.querySelector("#e_shiire2").value;
+        let re = filter.querySelector("#e_return1").value + "_" + filter.querySelector("#e_return2").value;
+
+        location.href = setParam(document.URL.replace(/\?.*$/,""), 
+          ["k", "p", "da", "am", "amco", "fb", "pe", "pr", "si", "re"], ["", 1, da, am, amco, fb, pe, pr, si, re]);
+      });
+    }
+  </script>
+
+
+
+
+  <div class="mt-5">
+
+    
+
+
+    <div class="flex end between">
+      <div class="search-result">検索結果：
+        <span class="search-result-number">67,138</span>
+        <span class="margin">件</span>
+        <span>1 - 25 件</span>
+      </div>
+      <button class="update-selling btn btn-primary absolute" style="right:140px;">出品情報の取得</button>
+      <button class="csv btn absolute" style="right:30px;">CSV出力</button>
+    </div>
+    <div class="list">
+      <div class="item relative">
+        <div class="update absolute btn">情報更新</div>
+        <div class="delete absolute btn">削除</div>
+        <div class="flex">
+          <div class="main list-main">
+            <div class="list-search-data" style="color:white;font-size:14px;margin-right:10px;font-weight: normal;">検索時：04月24日</div>
+            <div class="list-goods-title">
+              スチール金属 真空 断熱 ジョッキ 450ml ステンレス H-6054
+            </div>
+            <div class="flex mt-3 list-goods-info">
+              <div class="left">
+                <img src="assets/images/item_img.png">
+              </div>
+              <div class="center kintone">
+                <img src="assets/images/グループ 336.png" alt="">
+              </div>
+              <div class="right">
+                <div class="values" style="font-size: 13px !important;margin-bottom: 30px;">
+                  <div class="values-flex">
+                    <div class="value">ASIN</div>
+                    <div class="value-radius-inner">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="value-number value-bold">B00BIYLPS8</span>
+                  </div>
+                  <div class="values-flex">
+                    <span class="value">EAN</span>
+                    <div class="value-radius-inner">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="value-number">08999890427</span>
+                  </div>
+                  <div class="values-flex">
+                    <span class="value">JAN</span>
+                    <div class="value-radius-inner">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="value-number">4976790560542</span>
+                  </div>
+                   <div class="values-flex">
+                    <span class="value">梱包サイズ</span>
+                    <div class="value-radius-inner value-radius-inner-ml60">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="value-number value-bold">11.50cm × 11.60cm × 14.90cm 、 0.30kg</span>
+                  </div>
+                  <div class="values-flex">
+                    <span class="value">バリエーション</span>
+                    <div class="value-radius-inner value-radius-inner-ml33">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="value-number value-bold value-radius-inner-ml60">1個</span>
+                  </div>
+                  <div class="values-flex">
+                    <span class="value">出品したsku</span>
+                    <div class="value-radius-inner value-radius-inner-ml54">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="value-number">- - -</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="price-prediction-inner">
+              <div class="price">
+                <span class="pp-title">価格情報</span>
+                <div class="price-info-box">
+                  <div class="price-info-flex">
+                    <div class="price-info-value">アメリカFBA最安値</div>
+                    <div class="value-radius-inner value-radius-inner-ml88">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="price-unit">52.39ドル</span>
+                  </div>
+                  <div class="price-info-flex">
+                    <div class="price-info-value">アメリカ90日間FBA最安値</div>
+                    <div class="value-radius-inner">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="price-unit">52.39ドル</span>
+                  </div>
+                  <div class="price-info-flex">
+                    <div class="price-info-value">アメリカAmazon手数料</div>
+                    <div class="value-radius-inner value-radius-inner-ml62">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="price-unit">12.41ドル</span>
+                  </div>
+                  <div class="price-info-flex">
+                    <div class="price-info-value">日本Amazon最安値</div>
+                    <div class="value-radius-inner value-radius-inner-ml92">
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                      <div class="value-radius"></div>
+                    </div>
+                    <span class="price-unit">960円</span>
+                  </div>
+                </div>
+              </div>
+              <div class="prediction">
+                <span class="pp-title">販売予測数</span>
+                <div class="prediction-info-box">
+                  <div class="prediction-info-flex">
+                    <div class="prediction-pastdata r180">過去180日</div>
+                    <span><span class="prediction-bar">-</span>回</span>
+                  </div>
+                  <div class="prediction-info-flex">
+                    <div class="prediction-pastdata r180">過去90日</div>
+                    <span><span class="prediction-bar">-</span>回</span>
+                  </div>
+                  <div class="prediction-info-flex">
+                    <div class="prediction-pastdata r180">過去30日</div>
+                    <span><span class="prediction-bar">-</span>回</span>
+                  </div>
+                </div>
+                <div class="prediction-info-box2">
+                  <div class="prediction-info">
+                    <div class="mr-2">過去180日間<br>Amazon.com<br><b class="prediction-info-bold">なし</b></div>
+                  </div>
+                  <div class="prediction-info">
+                    <div class="mr-2">現在<br>Amazon.co.jp<br>なし</div>
+                  </div>
+                  <div class="prediction-info">
+                    <div class="mr-2">出品申請<br>要申請</div>
+                  </div>
+                  <div class="prediction-info">
+                    <div class="mr-2">返品率<br>ー</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="profit">
+              <div class="profit-flex">
+                <div class="profit-purchase-box profit-box">
+                  <div class="profit-heading">仕入れ予定数</div>
+                  <div class="profit-input">
+                    <input type="number" value=9999>
+                    <span>仕入れ目安 6.34</span>
+                  </div>
+                </div>
+                <div class="profit-cheapest-box profit-box">
+                  <div class="profit-heading">日本Amazon最安値</div>
+                  <div class="profit-input">
+                    <input type="text" value=999,999,999>
+                    <span class="nowrap"><b class="bold">参考価格</b>100,000,000</span>
+                    <span class="unit">円</span>
+                  </div>
+                </div>
+                <div class="profit-total-box profit-box">
+                  <div class="profit-heading">仕入合計</div>
+                  <div class="profit-total-number profit-number profit-input profit-input-bg-white">
+                    <span class="number-price">11,998,800</span>
+                    <span class="unit">円</span>
+                  </div>
+                </div>
+                <div class="profit-gross-box profit-box">
+                  <div class="profit-heading">粗利益/1個</div>
+                  <div class="profit-total-number profit-number profit-input profit-input-bg-white">
+                    <span class="number-price">300</span>
+                    <span class="unit">円</span>
+                  </div>
+                </div>
+                <div class="profit-grossmargin-box profit-box">
+                  <div class="profit-heading">粗利益率</div>
+                  <div class="profit-total-number profit-number profit-input profit-input-bg-white">
+                    <span class="number-price">10.00</span>
+                    <span class="unit">%</span>
+                  </div>
+                </div>
+                <div class="profit-exsales-box profit-box">
+                  <div class="profit-heading">期待売上</div>
+                  <div class="profit-total-number profit-number profit-input profit-input-bg-white">
+                    <span class="number-price">33,692,630</span>
+                    <span class="unit">円</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shop-profit">
+              <div class="shop-profit-flex">
+                <div class="shop">
+                  <div class="shop-amazon-logo shop-logo">
+                    <a href="">
+                      <img src="assets/images/Amazon-logo-RGB.png" alt="">
+                    </a>
+                  </div>
+                  <div class="shop-rakuten-logo shop-logo">
+                    <a href="">
+                      <img src="assets/images/rakuten-logo.png" alt="">
+                    </a>
+                  </div>
+                  <div class="shop-yahoo-logo shop-logo">
+                    <a href="">
+                      <img src="assets/images/Yahoo_Shopping_r_34_2x.png" alt="">
+                    </a>
+                  </div>
+                  <div class="shop-kakaku-logo shop-logo">
+                    <a href="">
+                      <img src="assets/images/価格.com_RGB（WEB用）.png" alt="">
+                    </a>
+                  </div>
+                </div>
+                <div class="total-profit">
+                  <div class="total-profit-box">
+                    <div class="total-profit-text">トータル利益</div>
+                    <span class="total-profit-number-price">120,000,000</span>
+                    <span class="total-profit-unit">円</span>                 
+                  </div>
+                </div>
+                <div class="delivery">
+                  <button class="btn delivery-btn">
+                    <div class="delivery-btn-text">納品準備画面に保存する</div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pagenation">
+      <div class="pagenation-inner">
+        <div class="pagenation-firstpage-box">
+          最初
+        </div>
+        <div class="pagenation-prevpage-box">
+          <a class="pagenation-prevpage-box-link" href="">
+            <div class="pagenation-prevpage-box-symbol"></div>
+          </a>
+        </div>
+        <div class="pagenation-show-box">50000</div>
+        <div class="pagenation-pagesnumber-box"><span class="slash">/</span>50000</div>
+        <div class="pagenation-nextpage-box">
+          <a class="pagenation-nextpage-box-link" href="">
+            <div class="pagenation-nextpage-box-symbol"></div>
+          </a>
+        </div>
+        <div class="pagenation-lastpage-box">最後</div>
+      </div>
+    </div>
+</main>
+
+<script src="assets/js/main.js">
+
+</script>
