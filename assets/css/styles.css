@@ -864,6 +864,7 @@ table.ip-list {
 }
 .main .toolboard {
   position: fixed;
+  left: 17.3rem;
   width: 83%;
   z-index: 100;
   display: none;
