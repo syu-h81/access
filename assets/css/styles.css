@@ -595,6 +595,31 @@ table.ip-list {
   border-color: #971D03;
 }
 
+.announce-toggle {
+  color: #fff;
+  font-size: 13px;
+  margin-left: 8%;
+}
+@media screen and (min-width: 1300px) {
+  .announce-toggle {
+    margin-left: 0;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .announce-toggle {
+    margin-right: 8%;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .announce-toggle {
+    margin-right: 12%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .announce-toggle {
+    margin-right: 20%;
+  }
+}
 .announce-toggle .link-arrow .icon {
   transform: rotate(90deg);
   transition: all 0.2s ease;
@@ -967,11 +992,21 @@ table.ip-list {
   color: #9C9C9C;
   font-size: 14px;
 }
+@media screen and (max-width: 1200px) {
+  .main .search-seller-box input {
+    width: 290px;
+  }
+}
 .main .search-asin-box input {
   width: 342px;
   height: 56px;
   color: #9C9C9C;
   font-size: 14px;
+}
+@media screen and (max-width: 1200px) {
+  .main .search-asin-box input {
+    width: 270px;
+  }
 }
 .main .search-free-inner {
   padding: 20px 40px;
@@ -983,6 +1018,11 @@ table.ip-list {
   border-radius: 6px;
   color: #9C9C9C;
   font-size: 14px;
+}
+@media screen and (max-width: 1200px) {
+  .main .search-free-inner input {
+    width: 290px;
+  }
 }
 .main .search-extract-btn::before {
   content: "";
@@ -1101,7 +1141,7 @@ table.ip-list {
   display: flex;
   background: #F8F8F8;
   padding: 6px;
-  margin-top: 10px;
+  margin-top: 4px;
   font-size: 14px;
 }
 .main .list .right .values-flex .value {
@@ -1133,7 +1173,7 @@ table.ip-list {
 }
 .main .list .price-prediction-inner {
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   justify-content: space-between;
 }
@@ -1183,11 +1223,21 @@ table.ip-list {
 }
 .main .list .price-prediction-inner .price-unit {
   margin-left: 20px;
-  margin-right: 4rem;
+  margin-right: 2rem;
+}
+@media screen and (min-width: 1400px) {
+  .main .list .price-prediction-inner .price-unit {
+    margin-right: 6rem;
+  }
 }
 @media screen and (min-width: 1500px) {
   .main .list .price-prediction-inner .price-unit {
-    margin-right: 140px;
+    margin-right: 8rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .main .list .price-prediction-inner .price-unit {
+    margin-right: 10rem;
   }
 }
 @media screen and (min-width: 2000px) {
@@ -1231,7 +1281,18 @@ table.ip-list {
   background-color: #F8F8F8;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 2%;
+  position: relative;
+}
+.main .list .price-prediction-inner .prediction-info-flex::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 66px;
+  opacity: 0.6;
+  background-color: #C3C3C3;
 }
 .main .list .price-prediction-inner .prediction-pastdata {
   font-size: 16px;
@@ -1287,7 +1348,7 @@ table.ip-list {
   border: 0.1px solid #707070;
 }
 .main .list .profit-purchase-box input {
-  width: 68px;
+  width: 90px;
   margin: 0 auto;
   border: 1px solid #707070;
   border-radius: 8px;
@@ -1321,17 +1382,27 @@ table.ip-list {
   padding: 20px 15px;
   height: 93px;
 }
+@media screen and (max-width: 1300px) {
+  .main .list .profit-input {
+    padding: 20px 6px;
+  }
+}
 .main .list .profit-input-bg-white {
   background-color: #fff;
 }
 .main .list .profit-input .number-price {
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 10px;
   display: inline-block;
+  white-space: nowrap;
+}
+.main .list .profit-input .number-price.bold {
+  font-weight: bold;
 }
 .main .list .profit-input .unit {
   margin-top: 10px;
   font-size: 14px;
+  white-space: nowrap;
 }
 .main .list .profit-input .nowrap {
   white-space: nowrap;
@@ -1351,14 +1422,16 @@ table.ip-list {
 }
 .main .list .shop-profit-flex .shop {
   display: grid;
-  row-gap: 10px;
-  -moz-column-gap: 8px;
-       column-gap: 8px;
+  row-gap: 4px;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
   grid-template-columns: repeat(2, 1fr);
 }
 .main .list .shop-profit-flex .shop-logo {
   max-width: 105px;
-  padding: 10px;
+  max-height: 25px;
+  padding: 10px 20px;
+  padding-top: 0;
   border: 0.2px solid #707070;
   border-radius: 4px;
 }
@@ -1384,7 +1457,7 @@ table.ip-list {
   margin-left: 30px;
 }
 .main .list .shop-profit-flex .total-profit-unit {
-  margin-left: 30px;
+  margin-left: 10px;
 }
 .main .list .shop-profit-flex .delivery-btn {
   background-color: #D18C06;
