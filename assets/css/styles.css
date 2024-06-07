@@ -894,10 +894,33 @@ table.ip-list {
 }
 .main .toolboard {
   position: fixed;
-  left: 17.3rem;
+  left: 15.3rem;
   width: 83%;
-  z-index: 100;
+  z-index: 10;
   display: none;
+  /*@media screen and (max-width: 1500px) {
+    left: 15.3rem;
+  }*/
+}
+@media screen and (min-width: 1450px) {
+  .main .toolboard {
+    left: 17rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .main .toolboard {
+    left: 18rem;
+  }
+}
+@media screen and (min-width: 1740px) {
+  .main .toolboard {
+    left: 19.3rem;
+  }
+}
+@media screen and (min-width: 1830px) {
+  .main .toolboard {
+    left: 20.5rem;
+  }
 }
 .main .toolboard.open {
   display: block;
@@ -906,8 +929,14 @@ table.ip-list {
   background-color: #971D03;
   padding: 25px;
 }
+@media screen and (min-width: 1500px) {
+  .main .toolboard-inner {
+    padding-left: 0;
+  }
+}
 .main .toolboard-textarea-content {
   width: 90%;
+  margin: 0 auto;
 }
 .main .toolboard-textarea {
   width: 100%;
@@ -1141,18 +1170,6 @@ table.ip-list {
   margin-top: 4px;
   padding: 6px 10px;
 }
-.main .list .price-prediction-inner .price-info-flex .value-radius-inner {
-  margin-left: 40px;
-}
-.main .list .price-prediction-inner .price-info-flex .value-radius-inner-ml88 {
-  margin-left: 88px;
-}
-.main .list .price-prediction-inner .price-info-flex .value-radius-inner-ml62 {
-  margin-left: 62px;
-}
-.main .list .price-prediction-inner .price-info-flex .value-radius-inner-ml92 {
-  margin-left: 92px;
-}
 .main .list .price-prediction-inner .price-info-flex .value-radius-inner .value-radius {
   width: 4px;
   height: 4px;
@@ -1162,9 +1179,21 @@ table.ip-list {
 }
 .main .list .price-prediction-inner .price-info-value {
   margin-left: 10px;
+  width: 200px;
 }
 .main .list .price-prediction-inner .price-unit {
-  margin-left: 50px;
+  margin-left: 20px;
+  margin-right: 4rem;
+}
+@media screen and (min-width: 1500px) {
+  .main .list .price-prediction-inner .price-unit {
+    margin-right: 140px;
+  }
+}
+@media screen and (min-width: 2000px) {
+  .main .list .price-prediction-inner .price-unit {
+    margin-right: 200px;
+  }
 }
 .main .list .price-prediction-inner .prediction {
   width: 56%;
@@ -1201,6 +1230,7 @@ table.ip-list {
 .main .list .price-prediction-inner .prediction-info-flex {
   background-color: #F8F8F8;
   display: flex;
+  justify-content: center;
   padding: 20px;
 }
 .main .list .price-prediction-inner .prediction-pastdata {
@@ -1215,6 +1245,11 @@ table.ip-list {
   height: 25px;
   background-color: #BD3819;
   margin-left: 4px;
+}
+@media screen and (min-width: 1600px) {
+  .main .list .price-prediction-inner .prediction-pastdata::after {
+    margin: 0 15px;
+  }
 }
 .main .list .price-prediction-inner .prediction-nowrap {
   white-space: nowrap;
@@ -1316,7 +1351,7 @@ table.ip-list {
 }
 .main .list .shop-profit-flex .shop {
   display: grid;
-  row-gap: 4px;
+  row-gap: 10px;
   -moz-column-gap: 8px;
        column-gap: 8px;
   grid-template-columns: repeat(2, 1fr);
@@ -1326,6 +1361,11 @@ table.ip-list {
   padding: 10px;
   border: 0.2px solid #707070;
   border-radius: 4px;
+}
+@media screen and (min-width: 1550px) {
+  .main .list .shop-profit-flex .shop-logo {
+    max-width: 135px;
+  }
 }
 .main .list .shop-profit-flex .total-profit-box {
   height: 54px;
@@ -1349,14 +1389,16 @@ table.ip-list {
 .main .list .shop-profit-flex .delivery-btn {
   background-color: #D18C06;
   color: #fff;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5), inset 0px -3px 6px -2px rgba(0, 0, 0, 0.3);
+  padding: 15px 20px;
 }
 .main .list .shop-profit-flex .delivery-btn-text::before {
   content: "";
   display: inline-block;
   background-image: url(../images/log-in.png);
   background-size: cover;
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
   vertical-align: middle;
   margin-right: 8px;
 }
