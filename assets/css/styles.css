@@ -775,6 +775,9 @@ table.ip-list {
   padding: 50px;
   padding-top: 30px;
 }
+.popup-content.hidden {
+  display: none;
+}
 .popup-content-close-box {
   border: 1px solid #AAAAAA;
   border-radius: 4px;
@@ -855,6 +858,33 @@ table.ip-list {
 }
 .popup-content-input-box .space {
   margin-left: 20px;
+}
+.popup-extract-logo {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 100;
+  padding: 20px 100px;
+  background-color: #BD3819;
+  display: none;
+}
+.popup-extract-logo.open {
+  display: block;
+}
+.popup-extract-logo-text {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+.popup-extract-logo-text::before {
+  content: "";
+  display: inline-block;
+  background-image: url(../images/logo.png);
+  background-size: cover;
+  width: 60px;
+  height: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 .main {
@@ -1137,7 +1167,7 @@ table.ip-list {
   margin-left: 50px;
 }
 .main .list .price-prediction-inner .prediction {
-  width: 50%;
+  width: 56%;
 }
 .main .list .price-prediction-inner .prediction .pp-title {
   position: relative;
@@ -1164,8 +1194,8 @@ table.ip-list {
   margin-left: 10px;
 }
 .main .list .price-prediction-inner .prediction-info-box {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 20px;
 }
 .main .list .price-prediction-inner .prediction-info-flex {
@@ -1177,6 +1207,7 @@ table.ip-list {
   font-size: 16px;
   font-weight: bold;
   display: flex;
+  white-space: nowrap;
 }
 .main .list .price-prediction-inner .prediction-pastdata::after {
   content: "";
@@ -1184,6 +1215,9 @@ table.ip-list {
   height: 25px;
   background-color: #BD3819;
   margin-left: 4px;
+}
+.main .list .price-prediction-inner .prediction-nowrap {
+  white-space: nowrap;
 }
 .main .list .price-prediction-inner .prediction-bar {
   font-weight: bold;
