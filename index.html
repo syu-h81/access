@@ -18,7 +18,7 @@
 <body>
 
 <script>
-  
+  /*
   let width = document.querySelector(".header-title").clientWidth;
   if(document.querySelector(".header-account") != null){
     width += document.querySelector(".header-account").clientWidth;
@@ -45,6 +45,7 @@
       document.querySelector(".sidebar").style.paddingTop = "60px";
     }
   });
+  */
 </script>
 
 
@@ -265,15 +266,6 @@
     </footer>
   </div>
 </nav>
-<script>
-  let header_height = document.querySelector("header").clientHeight;
-  document.querySelector("#sidebar").style.paddingTop = header_height + "px";
-</script>
-
-<!-- sidebar -->
-
-
-
 
 
 <style>
@@ -365,9 +357,6 @@
   .item .right{
     width: calc(100% - 400px);
   }
-  .item .right .flex div{
-    /*width: calc(100%/5);*/
-  }
   input#store_url{
     min-width: 300px;
     width: 50%;
@@ -414,51 +403,6 @@
   .ng-register{
     height: 40px;
     border-radius: 8px !important;
-  }
-  .extract{
-    padding-bottom: 20px;
-  }
-  .extract #free_word{
-    padding: 5px;
-  }
-  #extract_detail_wrapper{
-    display: none;
-    transition: height 0.3s ease; /* 高さのトランジション効果を設定 */
-    overflow: hidden;
-    background: #eee;
-    padding: 5px 0 10px;
-    margin-bottom: 70px;
-  }
-  #extract_detail_wrapper .extract-group {
-    display: flex;
-    margin: 10px;
-  }
-  #extract_detail_wrapper .label {
-    /*width: 180px;*/
-    width: 200px;
-    /*background: #fff;
-    border: 1px solid #aaa;*/
-    padding: 5px;
-    margin-right: 10px;
-  }
-  #extract_detail_wrapper .extract-body{
-    width: 310px;
-  }
-  #extract_detail_wrapper input[type="date"]{
-    margin-right: 5px;
-    width: 120px;
-    text-align: center;
-    color: #777;
-  }
-  #extract_detail_wrapper input[type="number"]{
-    margin-right: 5px;
-    width: 120px;
-  }
-  #extract_detail_wrapper .extract-body label{
-    margin: 0 20px;
-  }
-  #extract_detail_wrapper input[type="checkbox"]{
-    margin-right: 5px;
   }
 </style>
 <div class="popup">
@@ -579,123 +523,8 @@
       <button class="search-extract-btn btn btn-primary">抽出条件</button>
     </div>
   </div>
-  <div id="extract_detail_wrapper" style="display: none; height: 0px;">
-    <div class="extract-group">
-      <div class="label">取得日</div>
-      <div class="extract-body">
-        <input type="date" id="e_date1" value="">日
-        〜
-        <input type="date" id="e_date2" value="">日
-      </div>
-    </div>
-    <div class="extract-group">
-      <div class="label">過去180日間Amazon.com</div>
-      <div class="extract-body">
-        <label><input type="checkbox" id="e_com1">なし</label>
-        <label><input type="checkbox" id="e_com2">あり</label>
-      </div>
-    </div>
-    <div class="extract-group">
-      <div class="label">現在Amazon.co.jp</div>
-      <div class="extract-body">
-        <label><input type="checkbox" id="e_cojp1">なし</label>
-        <label><input type="checkbox" id="e_cojp2">あり</label>
-      </div>
-    </div>
-    <div class="extract-group">
-      <div class="label">FBA販売者</div>
-      <div class="extract-body">
-        <label><input type="checkbox" id="e_fba1">なし</label>
-        <label><input type="checkbox" id="e_fba2">あり</label>
-      </div>
-    </div>
-    <div class="extract-group">
-      <div class="label">粗利率</div>
-      <div class="extract-body">
-        <input type="number" id="e_percent1">%
-        〜
-        <input type="number" id="e_percent2">%
-      </div>
-    </div>
-    <div class="extract-group">
-      <div class="label">粗利額</div>
-      <div class="extract-body">
-        <input type="number" id="e_profit1">円
-        〜
-        <input type="number" id="e_profit2">円
-      </div>
-    </div>
-    <div class="extract-group">
-      <div class="label">仕入れ目安</div>
-      <div class="extract-body">
-        <input type="number" id="e_shiire1">
-        〜
-        <input type="number" id="e_shiire2">
-      </div>
-    </div>
-    <div class="extract-group">
-      <div class="label">返品率</div>
-      <div class="extract-body">
-        <input type="number" id="e_return1">%
-        〜
-        <input type="number" id="e_return2">%
-      </div>
-    </div>
-    <div><button id="extract_detail_done" class="search btn btn-primary ml-2">フィルター検索</div>
-  </div>
-
-  <script>
-    if(document.querySelector("#extract_detail") != null){
-      document.querySelector("#extract_detail").addEventListener("click", function(){
-        if(document.querySelector("#extract_detail_wrapper").style.display != "block"){
-          slideDown(document.querySelector("#extract_detail_wrapper"));
-        }
-        else{
-          slideUp(document.querySelector("#extract_detail_wrapper"));
-        }
-      });
-
-      function slideDown(element) {
-        element.style.display = 'block';
-        element.style.height = element.scrollHeight + 'px';
-      }
-
-      function slideUp(element) {
-        element.style.height = '0';
-        setTimeout(function() {
-          element.style.display = 'none';
-        }, 300); // 0.3秒後に非表示にする
-      }
-    }
-    if(document.querySelector("#extract_detail_done") != null){
-      document.querySelector("#extract_detail_done").addEventListener("click", function(){
-        let filter = document.querySelector("#extract_detail_wrapper");
-        let da = filter.querySelector("#e_date1").value + "_" + filter.querySelector("#e_date2").value;
-        let am = (filter.querySelector("#e_com1").checked ? 1 : "0") + "_" + (filter.querySelector("#e_com2").checked ? 1 : 0);
-        let amco = "";
-        if(filter.querySelector("#e_cojp1") != null){
-          amco = (filter.querySelector("#e_cojp1").checked ? 1 : "0") + "_" + (filter.querySelector("#e_cojp2").checked ? 1 : 0);
-        }
-        let fb = (filter.querySelector("#e_fba1").checked ? 1 : "0") + "_" + (filter.querySelector("#e_fba2").checked ? 1 : 0);
-        let pe = filter.querySelector("#e_percent1").value + "_" + filter.querySelector("#e_percent2").value;
-        let pr = filter.querySelector("#e_profit1").value + "_" + filter.querySelector("#e_profit2").value;
-        let si = filter.querySelector("#e_shiire1").value + "_" + filter.querySelector("#e_shiire2").value;
-        let re = filter.querySelector("#e_return1").value + "_" + filter.querySelector("#e_return2").value;
-
-        location.href = setParam(document.URL.replace(/\?.*$/,""), 
-          ["k", "p", "da", "am", "amco", "fb", "pe", "pr", "si", "re"], ["", 1, da, am, amco, fb, pe, pr, si, re]);
-      });
-    }
-  </script>
-
-
-
 
   <div class="mt-5">
-
-    
-
-
     <div class="flex end between">
       <div class="search-result">検索結果：
         <span class="search-result-number">67,138</span>

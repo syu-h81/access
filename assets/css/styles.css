@@ -745,7 +745,7 @@ table.ip-list {
 }
 .nav-moneyorder-content-heading {
   border-bottom: 1px dashed #fff;
-  padding-bottom: 1px;
+  padding-bottom: 5px;
 }
 .nav-moneyorder-content-area {
   display: flex;
