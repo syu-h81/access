@@ -333,9 +333,9 @@
     @media screen and (min-width: 1830px) {
       left: 20.5rem;
     }
-    /*@media screen and (max-width: 1500px) {
-      left: 15.3rem;
-    }*/
+    @media screen and (min-width: 2000px) {
+      left: 22rem;
+    }
     &.open {
       display: block;
     }
@@ -366,8 +366,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media screen and (min-width: 1700px) {
+        justify-content: flex-start;
+      }
     }
     &-acq-box {
+      &:last-child {
+        @media screen and (min-width: 1700px) {
+          margin-left: 10%;
+        }
+      }
       label {
         display: block;
         font-size: 14px;
@@ -468,7 +476,7 @@
       background: linear-gradient(to bottom, #FCFCFC, #D8D6D6);
       padding: 10px 20px;
       border-radius: 28px;
-      margin-right: 20px;
+      margin-right: 0;
       &::before {
         content: "";
         display: inline-block;
@@ -632,13 +640,25 @@
           @media screen and (min-width: 1600px) {
             margin-right: 10rem;
           }
+          @media screen and (min-width: 1800px) {
+            margin-right: 12rem;
+          }
+          @media screen and (min-width: 1900px) {
+            margin-right: 14rem;
+          }
           @media screen and (min-width: 2000px) {
-            margin-right: 200px;
+            margin-right: 220px;
           }
         }
       }
       .prediction {
         width: 56%;
+        @media screen and (min-width: 1700px) {
+          width: 60%;
+        }
+        @media screen and (min-width: 2000px) {
+          width: 63%;
+        }
         .pp-title {
           position: relative;
           display: flex;

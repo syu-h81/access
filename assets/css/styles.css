@@ -923,9 +923,6 @@ table.ip-list {
   width: 83%;
   z-index: 10;
   display: none;
-  /*@media screen and (max-width: 1500px) {
-    left: 15.3rem;
-  }*/
 }
 @media screen and (min-width: 1450px) {
   .main .toolboard {
@@ -945,6 +942,11 @@ table.ip-list {
 @media screen and (min-width: 1830px) {
   .main .toolboard {
     left: 20.5rem;
+  }
+}
+@media screen and (min-width: 2000px) {
+  .main .toolboard {
+    left: 22rem;
   }
 }
 .main .toolboard.open {
@@ -977,6 +979,16 @@ table.ip-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media screen and (min-width: 1700px) {
+  .main .search-inner {
+    justify-content: flex-start;
+  }
+}
+@media screen and (min-width: 1700px) {
+  .main .search-acq-box:last-child {
+    margin-left: 10%;
+  }
 }
 .main .search-acq-box label {
   display: block;
@@ -1073,7 +1085,7 @@ table.ip-list {
   background: linear-gradient(to bottom, #FCFCFC, #D8D6D6);
   padding: 10px 20px;
   border-radius: 28px;
-  margin-right: 20px;
+  margin-right: 0;
 }
 .main .list .update::before {
   content: "";
@@ -1240,13 +1252,33 @@ table.ip-list {
     margin-right: 10rem;
   }
 }
+@media screen and (min-width: 1800px) {
+  .main .list .price-prediction-inner .price-unit {
+    margin-right: 12rem;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .main .list .price-prediction-inner .price-unit {
+    margin-right: 14rem;
+  }
+}
 @media screen and (min-width: 2000px) {
   .main .list .price-prediction-inner .price-unit {
-    margin-right: 200px;
+    margin-right: 220px;
   }
 }
 .main .list .price-prediction-inner .prediction {
   width: 56%;
+}
+@media screen and (min-width: 1700px) {
+  .main .list .price-prediction-inner .prediction {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 2000px) {
+  .main .list .price-prediction-inner .prediction {
+    width: 63%;
+  }
 }
 .main .list .price-prediction-inner .prediction .pp-title {
   position: relative;
