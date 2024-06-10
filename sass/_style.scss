@@ -842,8 +842,16 @@
             padding-top: 0;
             border: 0.2px solid #707070;
             border-radius: 4px;
-            @media screen and (min-width: 1550px) {
-              max-width: 135px;
+          }
+          &-rakuten-logo {
+            img {
+              padding: 5px 10px;
+            }
+          }
+          &-yahoo-logo {
+            padding: 0;
+            img {
+              padding: 5px 10px;
             }
           }
         }

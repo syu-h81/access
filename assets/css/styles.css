@@ -1467,10 +1467,14 @@ table.ip-list {
   border: 0.2px solid #707070;
   border-radius: 4px;
 }
-@media screen and (min-width: 1550px) {
-  .main .list .shop-profit-flex .shop-logo {
-    max-width: 135px;
-  }
+.main .list .shop-profit-flex .shop-rakuten-logo img {
+  padding: 5px 10px;
+}
+.main .list .shop-profit-flex .shop-yahoo-logo {
+  padding: 0;
+}
+.main .list .shop-profit-flex .shop-yahoo-logo img {
+  padding: 5px 10px;
 }
 .main .list .shop-profit-flex .total-profit-box {
   height: 54px;
