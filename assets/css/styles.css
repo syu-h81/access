@@ -654,8 +654,32 @@ table.ip-list {
   text-align: justify;
   white-space: nowrap;
 }
+.nav-item:nth-child(4) {
+  background-color: #BD3819;
+  padding-top: 0;
+}
+.nav-item:nth-child(5) {
+  background-color: #971D03;
+  margin-top: 0;
+}
+.nav-item:nth-child(6) {
+  background-color: #BD3819;
+  padding-top: 0;
+}
 .nav-item:last-child {
   background-color: #BD3819;
+  padding: 0;
+  padding-left: 3%;
+  margin-top: 0;
+  position: relative;
+}
+.nav-item:last-child::after {
+  content: ">";
+  position: absolute;
+  top: 10%;
+  right: 12%;
+  font-size: 1.3rem;
+  font-weight: lighter;
 }
 .nav-item img {
   width: 10%;
@@ -676,18 +700,69 @@ table.ip-list {
 
 .nav-infoacq-heading {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin-top: 15px;
   padding: 0 15px;
 }
-.nav-infoacq-heading img {
-  width: 30%;
+.nav-infoacq-heading-stand {
+  font-size: 18px;
+  font-weight: bold;
+}
+.nav-infoacq-heading-stand.hidden {
+  display: none;
+}
+.nav-infoacq-heading .loading {
+  display: none;
+}
+.nav-infoacq-heading .loading.loading-open {
+  display: block;
+}
+.nav-infoacq-heading .loading .spinner {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.nav-infoacq-heading .loading .spinner-Ball {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 80%;
+  transform: rotate(calc(30deg * var(--i)));
+}
+.nav-infoacq-heading .loading .spinner-Ball::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  animation: animate 1.2s linear infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+@keyframes animate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    background: #ddd;
+  }
+  100% {
+    transform: scale(0);
+    background: #000;
+  }
 }
 .nav-infoacq-heading-name {
   font-size: 16px;
   font-weight: bold;
   white-space: nowrap;
+  display: none;
+}
+.nav-infoacq-heading-name.loading-open {
+  display: block;
 }
 .nav-infoacq-heading-name::after {
   content: "now loading…";
@@ -702,6 +777,10 @@ table.ip-list {
   padding: 0 10px;
   margin-top: 15px;
   border-bottom: 1px dashed #fff;
+  opacity: 0.4;
+}
+.nav-infoacq-box.loading-open {
+  opacity: 1;
 }
 
 .nav-id-name {
@@ -715,6 +794,10 @@ table.ip-list {
 .nav-number {
   text-align: right;
   padding-bottom: 1px;
+  display: none;
+}
+.nav-number.loading-open {
+  display: block;
 }
 
 .nav-monthsearch-content {

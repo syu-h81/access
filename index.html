@@ -17,39 +17,6 @@
 </head>
 <body>
 
-<script>
-  /*
-  let width = document.querySelector(".header-title").clientWidth;
-  if(document.querySelector(".header-account") != null){
-    width += document.querySelector(".header-account").clientWidth;
-  }
-  width += 20;
-  document.querySelector(".announce-toggle").style.width = "calc(100% - "+width+"px)";
-
-  document.querySelector(".announce-toggle").addEventListener("click", function(){
-    var data = {
-      announce: "open"
-    }
-    if(this.className.indexOf("hidden") > -1){
-      this.classList.remove("hidden");
-      var height = document.querySelector("header").clientHeight;
-      document.querySelector("div.container-fluid").style.paddingTop = height+"px";
-      document.querySelector(".sidebar").style.paddingTop = height+"px";
-    }
-    else{
-      this.classList.add("hidden");
-      data = {
-        announce: "close"
-      }
-      document.querySelector("div.container-fluid").style.paddingTop = "60px";
-      document.querySelector(".sidebar").style.paddingTop = "60px";
-    }
-  });
-  */
-</script>
-
-
-
 <div class="container-fluid">
   <div class="row">
     <!-- header -->
@@ -60,17 +27,6 @@
         </button>
       </div>
       <style>
-        /*.announce-toggle.hidden .announce{
-          display: none;
-        }*/
-        .announce-toggle .link-arrow .icon {
-          transform: rotate(90deg);
-          transition: all 0.2s ease;
-        }
-        .announce-toggle.hidden .link-arrow .icon {
-          transform: rotate(0deg);
-          transition: all 0.2s ease;
-        }
         header.navbar{
           position: fixed;
           width: 100%;
@@ -224,11 +180,44 @@
           <span class="sidebar-text">API認証</span>
         </a>
       </li>
+      <li class="nav-item">
+        <img src="assets/images//api_ certification.png" alt="">
+        <a class="nav-link" href="/api/">
+          <span class="sidebar-text">API認証数一覧</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <img src="assets/images/akar-arrow-right-left.png" alt="">
+        <a class="nav-link" href="">
+          <span class="sidebar-text">アカウント切り替え</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/api/">
+          <span class="sidebar-text">統合管理ツール</span>
+        </a>
+      </li>
     </ul>
     <div class="nav-border-contents">
       <div class="nav-infoacq-content nav-content">
         <div class="nav-infoacq-heading">
-          <img src="assets/images/loading.png" alt="">
+          <div class="nav-infoacq-heading-stand">待機中</div>
+          <div class="loading">
+            <div class="spinner">
+              <span style="--i:1;" class="spinner-Ball spinner-Ball_1"></span>
+              <span style="--i:2;" class="spinner-Ball spinner-Ball_2"></span>
+              <span style="--i:3;" class="spinner-Ball spinner-Ball_3"></span>
+              <span style="--i:4;" class="spinner-Ball spinner-Ball_4"></span>
+              <span style="--i:5;" class="spinner-Ball spinner-Ball_5"></span>
+              <span style="--i:6;" class="spinner-Ball spinner-Ball_6"></span>
+              <span style="--i:7;" class="spinner-Ball spinner-Ball_7"></span>
+              <span style="--i:8;" class="spinner-Ball spinner-Ball_8"></span>
+              <span style="--i:9;" class="spinner-Ball spinner-Ball_9"></span>
+              <span style="--i:10;" class="spinner-Ball spinner-Ball_10"></span>
+              <span style="--i:11;" class="spinner-Ball spinner-Ball_11"></span>
+              <span style="--i:12;" class="spinner-Ball spinner-Ball_12"></span>
+            </div>
+          </div>
           <div class="nav-infoacq-heading-name">情報取得中</div>
         </div>
         <div class="nav-infoacq-id nav-infoacq-box">
@@ -503,18 +492,14 @@
   <div class="search">
     <div class="search-inner">
       <div class="search-seller-box search-acq-box">
-        <form action="" class="form-inner">
-          <label for="">セラー情報取得</label>
-          <input type="text" value="ストアフロントURL">
-          <button class="search-acq-btn btn btn-primary">登録</button>
-        </form>
+        <label for="">セラー情報取得</label>
+        <input type="text" value="ストアフロントURL">
+        <button id="seller-btn" class="search-acq-btn btn btn-primary">登録</button>
       </div>
       <div class="search-asin-box search-acq-box">
-        <form action="" class="form-inner">
-          <label for="">ASIN情報取得</label>
-          <input type="text" value="ASIN">
-          <button class="search-acq-btn btn btn-primary">登録</button>
-        </form>
+        <label for="">ASIN情報取得</label>
+        <input type="text" value="ASIN">
+        <button id="asin-btn" class="search-acq-btn btn btn-primary">登録</button>
       </div>
     </div>
     <div class="search-free-inner">
