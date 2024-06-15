@@ -1,3 +1,11 @@
+div.container-fluid{
+  padding-top: 60px;
+  .navbar {
+    position: fixed;
+    width: 100%;
+    background-color: #971D03!important;
+  }
+}
 .announce-toggle {
   color: #fff;
   font-size: 13px;
@@ -32,22 +40,21 @@
 }
 
 .nav-logo {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
 }
 
 .nav-list {
-  margin-top: 28px;
+  margin-top: 16px;
 }
 
 .nav-item {
   display: flex;
   background-color: #971D03;
   border-radius: 28px;
-  font-size: 14px;
   font-weight: bold;
-  padding: 4px 20px;
-  margin-top: 15px;
+  padding: 0px 20px;
+  margin-top: 10px;
   text-align: justify;
   white-space: nowrap;
   &:nth-child(4) {
@@ -82,18 +89,23 @@
   img {
     width: 10%;
   }
+  .nav-link {
+    cursor: pointer;
+    font-size: 12px;
+  }
 }
 
 .nav-border-contents {
-  margin-top: 20px;
+  margin-top: 14px;
 }
 
 .nav-content {
   border: 2px solid #fff;
   border-radius: 6px;
-  padding: 14px;
+  padding: 7px 14px;
+  padding-bottom: 14px;
   &:last-child {
-    margin-top: 20px;
+    margin-top: 14px;
   }
 }
 
@@ -101,8 +113,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
   padding: 0 15px;
+  padding-top: 10px;
   &-stand {
     font-size: 18px;
     font-weight: bold;
@@ -221,7 +233,7 @@
 }
 
 .nav-moneyorder-content {
-  margin-top: 33px;
+  margin-top: 12px;
   font-size: 12px;
   text-align: center;
   &-heading {
@@ -236,7 +248,7 @@
 }
 
 .footer {
-  margin-top: 40px;
+  margin-top: 24px;
   &-flex {
     display: flex;
     justify-content: space-around;
@@ -400,6 +412,14 @@
   background-color: #F2F2F2;
   margin-left: auto;
   padding: 0 3rem 3rem 3rem;
+  @media screen and (min-width: 1450px) {
+    flex: 0 0 auto;
+    width: 82%;
+  }
+  @media screen and (min-width: 1920px) {
+    flex: 0 0 auto;
+    width: 82vw;
+  }
   .toolboard {
     position: fixed;
     left: 15.3rem;
@@ -628,13 +648,14 @@
         &-flex {
           display: flex;
           background: #F8F8F8;
-          padding: 6px;
+          padding: 4px 6px;
           margin-top: 4px;
           font-size: 14px;
           .value {
             padding-left: 15px;
             position: relative;
             width: 150px;
+            font-size: 14px;
             &::before {
               content: '';
               position: absolute;
@@ -656,14 +677,15 @@
             }
             &-number {
               margin-left: 10px;
+              font-size: 12px;
             }
           }
         }
       }
     }
     .price-prediction-inner {
+      font-size: 14px;
       margin: 0 auto;
-      margin-top: 50px;
       display: flex;
       justify-content: space-between;
       .price {
@@ -692,13 +714,13 @@
           }
         }
         &-info-box {
-          margin-top: 20px;
+          margin-top: 10px;
         }
         &-info-flex {
           display: flex;
           background-color: #F8F8F8;
           margin-top: 4px;
-          padding: 6px 10px;
+          padding: 3px 10px;
           .value-radius-inner {
             .value-radius {
               width: 4px;
@@ -771,13 +793,13 @@
         &-info-box {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          margin-top: 20px;
+          margin-top: 10px;
         }
         &-info-flex {
           background-color: #F8F8F8;
           display: flex;
           justify-content: center;
-          padding: 20px 2%;
+          padding: 10px 2%;
           position: relative;
           &::after {
             content: "";
@@ -785,7 +807,7 @@
             top: 0;
             left: 0;
             width: 1px;
-            height: 66px;
+            height: 46px;
             opacity: 0.6;
             background-color: #C3C3C3;
           }
@@ -823,7 +845,7 @@
         }
         &-info {
           background-color: #F8F8F8;
-          padding: 10px 0;
+          padding: 8px 0;
           &-bold {
             font-size: 16px;
             font-weight: bold;
@@ -886,7 +908,7 @@
           background-color: #fff;
         }
         .number-price {
-          font-size: 14px;
+          font-size: 18px;
           margin-top: 10px;
           display: inline-block;
           white-space: nowrap;
