@@ -690,7 +690,6 @@ div.container-fluid .navbar {
 }
 .nav-item .nav-link {
   cursor: pointer;
-  font-size: 12px;
 }
 
 .nav-border-contents {
@@ -1287,7 +1286,6 @@ div.container-fluid .navbar {
 }
 .main .list .right .values-flex .value-number {
   margin-left: 10px;
-  font-size: 12px;
 }
 .main .list .price-prediction-inner {
   font-size: 14px;
