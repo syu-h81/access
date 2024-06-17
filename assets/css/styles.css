@@ -1106,6 +1106,7 @@ div.container-fluid .navbar {
   height: 40px;
   color: #9C9C9C;
   font-size: 14px;
+  outline: 1px solid;
 }
 @media screen and (max-width: 1200px) {
   .main .search-seller-box input {
@@ -1117,6 +1118,7 @@ div.container-fluid .navbar {
   height: 56px;
   color: #9C9C9C;
   font-size: 14px;
+  outline: 1px solid;
 }
 @media screen and (max-width: 1200px) {
   .main .search-asin-box input {
@@ -1187,6 +1189,7 @@ div.container-fluid .navbar {
 .main .list .update {
   background: linear-gradient(to bottom, #FCFCFC, #D8D6D6);
   padding: 10px 20px;
+  border: 0;
   border-radius: 28px;
   margin-right: 0;
 }
@@ -1472,6 +1475,10 @@ div.container-fluid .navbar {
   font-size: 16px;
   font-weight: bold;
 }
+.main .list .price-prediction-inner .prediction-info .m-top {
+  margin-top: 21px;
+  display: block;
+}
 .main .list .profit {
   margin-top: 10px;
 }
@@ -1482,6 +1489,10 @@ div.container-fluid .navbar {
 .main .list .profit-box {
   width: 30%;
   border: 0.1px solid #707070;
+  border-right: 0;
+}
+.main .list .profit-box:last-child {
+  border-right: 0.1px solid #707070;
 }
 .main .list .profit-purchase-box input {
   width: 90px;
@@ -1510,8 +1521,12 @@ div.container-fluid .navbar {
   color: #fff;
   font-size: 14px;
   font-weight: bold;
-  padding: 10px 30px;
+  padding: 10px 0px;
   white-space: nowrap;
+  position: relative;
+}
+.main .list .profit-heading-D89F30 {
+  border-bottom: 5px solid #EECA5E;
 }
 .main .list .profit-input {
   background-color: #FFF8F8;

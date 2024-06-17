@@ -495,6 +495,7 @@ div.container-fluid{
         height: 40px;
         color: #9C9C9C;
         font-size: 14px;
+        outline: 1px solid;
         @media screen and (max-width: 1200px) {
           width: 290px;
         }
@@ -506,6 +507,7 @@ div.container-fluid{
         height: 56px;
         color: #9C9C9C;
         font-size: 14px;
+        outline: 1px solid;
         @media screen and (max-width: 1200px) {
           width: 270px;
         }
@@ -579,6 +581,7 @@ div.container-fluid{
       background: -webkit-linear-gradient(top, #FFC778, #FFF);
       background: linear-gradient(to bottom, #FCFCFC, #D8D6D6);
       padding: 10px 20px;
+      border: 0;
       border-radius: 28px;
       margin-right: 0;
       &::before {
@@ -848,6 +851,10 @@ div.container-fluid{
             font-size: 16px;
             font-weight: bold;
           }
+          .m-top {
+            margin-top: 21px;
+            display: block;        
+          }
         }
       }
     }
@@ -860,6 +867,10 @@ div.container-fluid{
       &-box {
         width: 30%;
         border: 0.1px solid #707070;
+        border-right: 0;
+        &:last-child {
+          border-right: 0.1px solid #707070;
+        }
       }
       &-purchase-box {
         input {
@@ -892,8 +903,12 @@ div.container-fluid{
         color: #fff;
         font-size: 14px;
         font-weight: bold;
-        padding: 10px 30px;
+        padding: 10px 0px;
         white-space: nowrap;
+        position: relative;
+        &-D89F30 {
+          border-bottom: 5px solid #EECA5E;
+        }
       }
       &-input {
         background-color: #FFF8F8;
